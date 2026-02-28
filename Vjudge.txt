@@ -1,0 +1,277 @@
+Arrays:
+[A]
+import java.util.Scanner;
+public class Main{
+    public static void main(String[] args){
+        Scanner sc=new Scanner(System.in);
+        int n=sc.nextInt();
+        int[] arr=new int[n];
+        for(int i=0;i<n;i++){
+            arr[i]=sc.nextInt();
+        }
+        for(int i=0;i<n;i++){
+        System.out.print(arr[i]+" ");
+        }
+    }
+}
+-----------------------------------------------------------------------------
+[P]
+import java.util.Scanner;
+public class Main{
+    public static void main(String[] args){
+        Scanner sc=new Scanner(System.in);
+        int n=sc.nextInt();
+        int[] arr=new int[n];
+        for(int i=0;i<n;i++){
+            arr[i]=sc.nextInt();
+        }
+        for(int i=0;i<n;i++){
+            int c=0;
+            for(int j=0;j<n;j++)
+            {
+                if(arr[i]==arr[j])
+                {
+                    c++;
+                }
+            }
+            if(c==1){
+                System.out.print(arr[i]+" ");
+            }
+        }
+    }
+}
+-----------------------------------------------------------------------------
+[H]
+import java.util.Scanner;
+public class Main{
+    public static void main(String[] args){
+        Scanner sc=new Scanner(System.in);
+        int T=sc.nextInt();
+        while(T-->0){
+            int L=sc.nextInt();
+            int R=sc.nextInt();
+            int count=0;
+            for(int i=L;i<=R;i++){
+                int lastDigit=i%10;
+                if(lastDigit==2||lastDigit==3||lastDigit==9){
+                    count++;
+                }
+            }
+            System.out.println(count);
+        }
+    }
+}
+-----------------------------------------------------------------------------
+[T]
+import java.util.*;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        int n = sc.nextInt();
+        int[] arr = new int[n];
+
+        for (int i = 0; i < n; i++) {
+            arr[i] = sc.nextInt();
+        }
+
+        Arrays.sort(arr);   // gravity effect
+
+        for (int i = 0; i < n; i++) {
+            System.out.print(arr[i] + " ");
+        }
+
+        sc.close();
+    }
+}
+----------------------------------------------------------------------
+OOPS:
+(1)
+import java.util.Scanner;
+
+class Car {
+    String brand;
+    String model;
+    int year;
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        Car c = new Car();
+
+        c.brand = sc.next();
+        c.model = sc.next();
+        c.year = sc.nextInt();
+
+        System.out.println("Brand: " + c.brand);
+        System.out.println("Model: " + c.model);
+        System.out.println("Year: " + c.year);
+    }
+}
+--------------------------------------------------------------------------
+(2)
+import java.util.Scanner;
+
+class BankAccount {
+    private String accountNumber;
+    private int balance;
+
+    public void setDetails(String accNo, int bal) {
+        accountNumber = accNo;
+
+        if (bal >= 0) {
+            balance = bal;
+        } else {
+            balance = 0;
+        }
+    }
+
+    public void display() {
+        System.out.println("Account Number: " + accountNumber);
+        System.out.println("Balance: " + balance);
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        String accNo = sc.next();
+        int bal = sc.nextInt();
+
+        BankAccount account = new BankAccount();
+        account.setDetails(accNo, bal);
+        account.display();
+    }
+}
+---------------------------------------------------------------------------
+(3)
+class Animal {
+    void make_sound() {
+        System.out.println("Animal sound");
+    }
+}
+
+class Dog extends Animal {
+    void make_sound() {
+        System.out.println("Bark");
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Dog d = new Dog();
+        d.make_sound();
+    }
+}
+----------------------------------------------------------------------------
+(4)(5)
+import java.util.Scanner;
+class Shape {
+    void area() {
+        System.out.println("Calculating area...");
+    }
+}
+class Circle extends Shape {
+    int radius;
+    Circle(int r) {
+        radius = r;
+    }
+    void area() {
+        double result = 3.14 * radius * radius;
+        System.out.println("Area of Circle: " + result);
+    }
+}
+class Rectangle extends Shape {
+    int length, width;
+    Rectangle(int l, int w) {
+        length = l;
+        width = w;
+    }
+    void area() {
+        int result = length * width;
+        System.out.println("Area of Rectangle: " + result);
+    }
+}
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        String shape1 = sc.next();   // Circle
+        int r = sc.nextInt();
+        String shape2 = sc.next();   // Rectangle
+        int l = sc.nextInt();
+        int w = sc.nextInt();
+        Circle c = new Circle(r);
+        Rectangle rect = new Rectangle(l, w);
+        c.area();
+        rect.area();
+    }
+}
+----------------------------------------------------------------------------
+[Creating a file with text inside]
+package com.example.demo;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+public class Person {
+    public static void main(String[] args) {
+        try 
+        {
+            File f = new File("D:/practice/output.txt");
+            FileWriter fw = new FileWriter(f);
+            BufferedWriter bw = new BufferedWriter(fw);
+            bw.write("this is written");
+            bw.close();
+            System.out.println("File written successfully!");
+        } 
+        catch (IOException e)
+        {
+            e.printStackTrace();
+        }
+    }
+}
+----------------------------------------------------------------------------
+[Matrices = creating rows and columns]
+package com.example.demo;
+import java.util.Scanner;
+
+public class MatrixExample {
+    public static void main(String[] args) {
+
+        Scanner sc = new Scanner(System.in);
+
+        // Taking row and column size
+        System.out.print("Enter number of rows: ");
+        int rows = sc.nextInt();
+
+        System.out.print("Enter number of columns: ");
+        int cols = sc.nextInt();
+
+        // Creating matrix
+        int[][] matrix = new int[rows][cols];
+
+        // Taking input
+        System.out.println("Enter matrix elements:");
+        for(int i = 0; i < rows; i++) {
+            for(int j = 0; j < cols; j++) {
+                matrix[i][j] = sc.nextInt();
+            }
+        }
+
+        // Printing matrix
+        System.out.println("Matrix is:");
+        for(int i = 0; i < rows; i++) {
+            for(int j = 0; j < cols; j++) {
+                System.out.print(matrix[i][j] + " ");
+            }
+            System.out.println();
+        }
+
+        sc.close();
+    }
+}
+------------------------------------------------------------------------
